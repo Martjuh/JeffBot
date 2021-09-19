@@ -7,7 +7,9 @@ const {
     joinVoiceChannel,
     createAudioPlayer,
     createAudioResource,
-    StreamType
+    StreamType,
+    entersState,
+    AudioPlayerStatus
 } = require('@discordjs/voice');
 
 // Set the prefix
@@ -15,12 +17,6 @@ const prefix = "<>";
 
 // Music Queue
 const queue = new Map()
-
-//
-const yt_opts = {
-    maxResults: 10,
-    key: "AIzaSyA9BbnOg-cDM1Kl58EEIoqQow_pzKAUn3s"
-}
 
 // Log on message
 client.on('ready', () => {
@@ -147,6 +143,7 @@ async function play(guild, song, connection) {
     const stream = ytdl(song.url, {filter:'audioonly', highWaterMark: 1 << 25, });
     const resource = createAudioResource(stream, {inputType: StreamType.Arbitrary,});
     player.play(resource);
+    await entersState(player, AudioPlayerStatus.Playing, 5_000);
     connection.subscribe(player);
     serverQueue.textChannel.send(`Start playing: **${song.title}**`);
 }
