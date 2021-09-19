@@ -1,0 +1,27 @@
+{
+  "name": "jeffbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/rest": "0.1.0-canary.0",
+    "@discordjs/voice": "^0.6.0",
+    "axios": "^0.21.4",
+    "discord-api-types": "^0.23.1",
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0",
+    "google-auth-library": "^7.9.2",
+    "googleapis": "^87.0.0",
+    "node-fetch": "^3.0.0",
+    "npm": "^7.24.0",
+    "youtube-api": "^3.0.1",
+    "youtube-search": "^1.1.6",
+    "ytdl-core": "^4.9.1"
+  }
+}
